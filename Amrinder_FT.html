@@ -22,19 +22,40 @@
       //   craeting a table
       var table = document.createElement("table");
 
+      // looping over the number of row and column to generate table
       for (var i = 0; i < rows; i++) {
         var row = table.insertRow(i);
         for (var j = 0; j < cols; j++) {
           var cell = row.insertCell(j);
           cell.appendChild(
-            document.createTextNode("Cell " + (i * cols + j + 1))
+            document.createTextNode("cell " + (i * cols + j + 1))
           );
         }
       }
 
+      // Create a heading element
+      var heading = document.createElement("h2");
+      heading.textContent = "Table is Ready";
+      document.body.appendChild(heading);
+
       document.body.appendChild(table);
       document.getElementById("b2").style.display = "inline";
       document.getElementById("b3").style.display = "inline";
+
+      // Add CSS styles to the table
+      table.style.borderCollapse = "collapse";
+      table.style.border = "1px solid black";
+      table.style.width = "40%";
+
+      // Append the heading and the table to the body
+
+      // Add some styles to the cells
+      var cells = table.getElementsByTagName("td");
+      for (var k = 0; k < cells.length; k++) {
+        cells[k].style.border = "2px solid black";
+        cells[k].style.padding = "8px";
+        cells[k].style.textAlign = "center";
+      }
     }
   </script>
 </html>
