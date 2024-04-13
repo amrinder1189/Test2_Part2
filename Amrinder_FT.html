@@ -63,7 +63,7 @@
       }
     }
 
-    // Adding column
+    // Adding column Functionality done
 
     function addColumn() {
       var table = document.getElementsByTagName("table")[0];
@@ -72,12 +72,11 @@
 
       for (var i = 0; i < rows.length; i++) {
         var cell = rows[i].insertCell(cols);
-        // Create a text node with the column index
-        var columnIndex = cols + 1; // Since cols starts from 0, we add 1 to get the actual column index
+        var columnIndex = cols + 1;
         var text = document.createTextNode(
-          "Column " + columnIndex + ", Row " + (i + 1)
+          "Row " + (i + 1) + ", Column " + columnIndex
         );
-        // Append the text node to the cell
+
         cell.appendChild(text);
       }
 
