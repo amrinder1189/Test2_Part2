@@ -61,6 +61,27 @@
         cells[k].style.padding = "8px";
         cells[k].style.textAlign = "center";
       }
+
+      document.getElementsByTagName("font")[0].style.display = "none";
+      document.getElementById("t1").style.display = "none";
+      document.getElementById("t2").style.display = "none";
+
+      // Hide the "Generate Table" button
+      document.getElementById("b1").style.display = "none";
+
+      document.body.style.color = "white";
+      var cells = document.querySelectorAll("td");
+
+      //   cell color
+      cells.forEach(function (cell) {
+        cell.style.color = "black";
+      });
+
+      var h2Tags = document.getElementsByTagName("h2");
+
+      for (var i = 0; i < h2Tags.length; i++) {
+        h2Tags[i].style.color = "black";
+      }
     }
 
     // Adding column Functionality done
@@ -92,6 +113,13 @@
         cells[k].style.padding = "8px";
         cells[k].style.textAlign = "center";
       }
+
+      var cells = document.querySelectorAll("td");
+
+      //   cell color
+      cells.forEach(function (cell) {
+        cell.style.color = "black";
+      });
     }
 
     // Adding Row
@@ -125,6 +153,13 @@
         cells[k].style.padding = "8px";
         cells[k].style.textAlign = "center";
       }
+
+      var cells = document.querySelectorAll("td");
+
+      //   cell color
+      cells.forEach(function (cell) {
+        cell.style.color = "black";
+      });
     }
   </script>
 </html>
