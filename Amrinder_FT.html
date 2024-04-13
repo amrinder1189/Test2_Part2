@@ -39,7 +39,7 @@
 
       // Create a heading element
       var heading = document.createElement("h2");
-      heading.textContent = "Table is Ready";
+      heading.textContent = "😁 Yeah ! Your Table is Ready";
       document.body.appendChild(heading);
 
       // Append the table to the body
@@ -77,6 +77,39 @@
           "Row " + (i + 1) + ", Column " + columnIndex
         );
 
+        cell.appendChild(text);
+      }
+
+      // Add CSS styles to the table
+      table.style.borderCollapse = "collapse";
+      table.style.border = "1px solid black";
+      table.style.width = "40%";
+
+      // Add some styles to the cells
+      var cells = table.getElementsByTagName("td");
+      for (var k = 0; k < cells.length; k++) {
+        cells[k].style.border = "2px solid black";
+        cells[k].style.padding = "8px";
+        cells[k].style.textAlign = "center";
+      }
+    }
+
+    // Adding Row
+    function addRow() {
+      var table = document.getElementsByTagName("table")[0];
+      var numRows = table.rows.length;
+      var numCols = table.rows[0].cells.length;
+
+      // Insert a new row at the end of the table
+      var newRow = table.insertRow(numRows);
+
+      // Loop through each column to create cells and add indices
+      for (var i = 0; i < numCols; i++) {
+        var cell = newRow.insertCell(i);
+        var rowIndex = numRows + 1;
+        var text = document.createTextNode(
+          "Row " + rowIndex + ", Column " + (i + 1)
+        );
         cell.appendChild(text);
       }
 
