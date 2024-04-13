@@ -13,5 +13,28 @@
 
   <button id="b3" onclick="addRow()">Add Row</button>
 
-  <script language="javascript"></script>
+  <script language="javascript">
+    function generateTable() {
+      //   query selector for getting number of rows
+      var rows = parseInt(document.getElementById("t1").value);
+      //   doing same as above for getting the number of columns
+      var cols = parseInt(document.getElementById("t2").value);
+      //   craeting a table
+      var table = document.createElement("table");
+
+      for (var i = 0; i < rows; i++) {
+        var row = table.insertRow(i);
+        for (var j = 0; j < cols; j++) {
+          var cell = row.insertCell(j);
+          cell.appendChild(
+            document.createTextNode("Cell " + (i * cols + j + 1))
+          );
+        }
+      }
+
+      document.body.appendChild(table);
+      document.getElementById("b2").style.display = "inline";
+      document.getElementById("b3").style.display = "inline";
+    }
+  </script>
 </html>
