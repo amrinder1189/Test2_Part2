@@ -14,22 +14,26 @@
   <button id="b3" onclick="addRow()">Add Row</button>
 
   <script language="javascript">
+    // Generating the table
     function generateTable() {
-      //   query selector for getting number of rows
+      // Get the number of rows and columns from the input fields
       var rows = parseInt(document.getElementById("t1").value);
-      //   doing same as above for getting the number of columns
       var cols = parseInt(document.getElementById("t2").value);
-      //   craeting a table
+
+      // Create a table element
       var table = document.createElement("table");
 
-      // looping over the number of row and column to generate table
+      // Loop over rows and columns to generate the table
       for (var i = 0; i < rows; i++) {
         var row = table.insertRow(i);
         for (var j = 0; j < cols; j++) {
           var cell = row.insertCell(j);
-          cell.appendChild(
-            document.createTextNode("cell " + (i * cols + j + 1))
+          // Create a text node with the cell indices
+          var text = document.createTextNode(
+            "Row " + (i + 1) + ", Column " + (j + 1)
           );
+          // Append the text node to the cell
+          cell.appendChild(text);
         }
       }
 
@@ -38,7 +42,10 @@
       heading.textContent = "Table is Ready";
       document.body.appendChild(heading);
 
+      // Append the table to the body
       document.body.appendChild(table);
+
+      // Display the "Add Column" and "Add Row" buttons
       document.getElementById("b2").style.display = "inline";
       document.getElementById("b3").style.display = "inline";
 
@@ -47,7 +54,37 @@
       table.style.border = "1px solid black";
       table.style.width = "40%";
 
-      // Append the heading and the table to the body
+      // Add some styles to the cells
+      var cells = table.getElementsByTagName("td");
+      for (var k = 0; k < cells.length; k++) {
+        cells[k].style.border = "2px solid black";
+        cells[k].style.padding = "8px";
+        cells[k].style.textAlign = "center";
+      }
+    }
+
+    // Adding column
+
+    function addColumn() {
+      var table = document.getElementsByTagName("table")[0];
+      var rows = table.rows;
+      var cols = rows[0].cells.length;
+
+      for (var i = 0; i < rows.length; i++) {
+        var cell = rows[i].insertCell(cols);
+        // Create a text node with the column index
+        var columnIndex = cols + 1; // Since cols starts from 0, we add 1 to get the actual column index
+        var text = document.createTextNode(
+          "Column " + columnIndex + ", Row " + (i + 1)
+        );
+        // Append the text node to the cell
+        cell.appendChild(text);
+      }
+
+      // Add CSS styles to the table
+      table.style.borderCollapse = "collapse";
+      table.style.border = "1px solid black";
+      table.style.width = "40%";
 
       // Add some styles to the cells
       var cells = table.getElementsByTagName("td");
